@@ -9,6 +9,8 @@ const options = {
     },
 };
 
+console.log("Fetching movies with headers:", options.headers);
+
 // returns an array of 20 of the most popular movies
 const getPopularMovies = async () => {
     const res = await fetch(

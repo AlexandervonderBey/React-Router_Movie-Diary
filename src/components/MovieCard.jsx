@@ -1,6 +1,7 @@
 import { IMG_URL } from '../data/tmdb';
+import { Link } from 'react-router';
 
-const MovieCard = ({ original_title, poster_path, id }) => {
+const MovieCard = ({ original_title, poster_path, id, addToFavorites }) => {
     return (
         <div className='card bg-base-100 image-full shadow-xl'>
             <figure>
@@ -10,7 +11,15 @@ const MovieCard = ({ original_title, poster_path, id }) => {
                 <h2 className='card-title text-4xl'>{original_title}</h2>
 
                 <div className='card-actions justify-end'>
+                    <Link to={`/details/${id}`}>                    
                     <button className='btn btn-primary'>See Details</button>
+                    </Link>
+                    <button
+                        className='btn btn-secondary'
+                        onClick={() => addToFavorites({ id, original_title, poster_path })}
+                    >
+                        ❤️ Add to Favorites
+                    </button>
                 </div>
             </div>
         </div>
